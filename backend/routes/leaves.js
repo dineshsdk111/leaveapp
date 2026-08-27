@@ -30,11 +30,11 @@ router.post('/apply', protect, async (req, res) => {
         leaveId: leave._id
       });
 
-      // Send email to faculty
+      // Send email to faculty (non-blocking)
       const emailContent = emailTemplates.leaveApplied(
         req.user.name, req.user.rollNumber, type, fromDate, toDate, reason
       );
-      await sendEmail(faculty.email, emailContent.subject, emailContent.html);
+      sendEmail(faculty.email, emailContent.subject, emailContent.html).catch(e => console.error('Email failed:', e.message));
     }
 
     res.status(201).json(leave);
@@ -103,11 +103,11 @@ router.put('/:id/action', protect, facultyOnly, async (req, res) => {
         leaveId: leave._id
       });
 
-      // Send email to student
+      // Send email to student (non-blocking)
       const emailContent = emailTemplates.leaveAction(
         applicant.name, leave.type, status, leave.fromDate, leave.toDate, remark
       );
-      await sendEmail(applicant.email, emailContent.subject, emailContent.html);
+      sendEmail(applicant.email, emailContent.subject, emailContent.html).catch(e => console.error('Email failed:', e.message));
     }
 
     // Update leaves taken if approved

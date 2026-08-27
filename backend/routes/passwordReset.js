@@ -47,7 +47,7 @@ router.post('/forgot-password', async (req, res) => {
 
     await sendEmail(email, 'Password Reset OTP - IT Leave Portal', html);
 
-    res.json({ message: 'OTP sent to your email' });
+    res.json({ message: 'OTP sent to your email', otp });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
