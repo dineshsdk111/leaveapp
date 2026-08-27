@@ -247,7 +247,7 @@ function LeaveCard({ leave, showStudent }) {
         )}
         <p className="text-sm text-gray-600">
           {leave.type === 'on-duty' ? 'On-Duty' : 'Leave'} |{' '}
-          {new Date(leave.fromDate).toLocaleDateString()} - {new Date(leave.toDate).toLocaleDateString()}
+          {new Date(leave.fromDate).toLocaleDateString('en-GB', {day:'2-digit',month:'2-digit',year:'numeric'})} - {new Date(leave.toDate).toLocaleDateString('en-GB', {day:'2-digit',month:'2-digit',year:'numeric'})}
         </p>
         <p className="text-xs text-gray-400 mt-1">{leave.reason}</p>
       </div>

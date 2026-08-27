@@ -139,8 +139,8 @@ function LeaveCard({ leave, onAction, loading, showActions }) {
         <div>
           <span className="text-gray-500">Dates:</span>{' '}
           <span className="font-medium">
-            {new Date(leave.fromDate).toLocaleDateString()} -{' '}
-            {new Date(leave.toDate).toLocaleDateString()}
+            {new Date(leave.fromDate).toLocaleDateString('en-GB', {day:'2-digit',month:'2-digit',year:'numeric'})} -{' '}
+            {new Date(leave.toDate).toLocaleDateString('en-GB', {day:'2-digit',month:'2-digit',year:'numeric'})}
           </span>
         </div>
       </div>

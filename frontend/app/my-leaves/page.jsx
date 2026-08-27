@@ -90,8 +90,8 @@ export default function MyLeavesPage() {
                       <StatusBadge status={leave.status} />
                     </div>
                     <p className="text-sm text-gray-600">
-                      📅 {new Date(leave.fromDate).toLocaleDateString()} -{' '}
-                      {new Date(leave.toDate).toLocaleDateString()}
+                      📅 {new Date(leave.fromDate).toLocaleDateString('en-GB', {day:'2-digit',month:'2-digit',year:'numeric'})} -{' '}
+                      {new Date(leave.toDate).toLocaleDateString('en-GB', {day:'2-digit',month:'2-digit',year:'numeric'})}
                     </p>
                     <p className="text-sm text-gray-500 mt-1">{leave.reason}</p>
                     {leave.facultyRemark && (
