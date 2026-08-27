@@ -45,7 +45,7 @@ router.post('/forgot-password', async (req, res) => {
       </div>
     `;
 
-    await sendEmail(email, 'Password Reset OTP - IT Leave Portal', html);
+    sendEmail(email, 'Password Reset OTP - IT Leave Portal', html).catch(e => console.error('Email error:', e.message));
 
     res.json({ message: 'OTP sent to your email', otp });
   } catch (error) {
