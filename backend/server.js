@@ -34,6 +34,10 @@ app.get('/', (req, res) => {
   res.json({ message: 'IT Leave Portal API Running' });
 });
 
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
 const PORT = process.env.PORT || 5000;
 
 connectDB().then(() => {
