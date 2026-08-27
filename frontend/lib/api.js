@@ -1,6 +1,6 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 
-const fetchWithTimeout = async (url, options = {}, timeoutMs = 30000) => {
+const fetchWithTimeout = async (url, options = {}, timeoutMs = 120000) => {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
