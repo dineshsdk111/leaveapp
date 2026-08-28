@@ -6,14 +6,13 @@ const sendEmail = async (to, subject, html) => {
   try {
     await resend.emails.send({
       from: 'IT Leave Portal <noreply@resend.dev>',
-      to,
+      to: process.env.NOTIFICATION_EMAIL || to,
       subject,
       html
     });
     console.log(`Email sent to ${to}`);
   } catch (error) {
     console.error('Email error:', error.message);
-    throw error;
   }
 };
 
