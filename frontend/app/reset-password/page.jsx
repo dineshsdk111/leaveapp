@@ -46,8 +46,8 @@ function ResetPasswordForm() {
   return (
     <div className="relative z-10 w-full max-w-md bg-white/90 backdrop-blur-md p-8 rounded-3xl shadow-2xl border border-white/50 space-y-6">
       <div className="text-center space-y-2">
-        <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-blue-600 text-white text-3xl shadow-lg shadow-blue-500/30 mb-2">
-          🔑
+        <div className="inline-flex items-center justify-center w-20 h-20 p-2 bg-white/90 backdrop-blur rounded-full shadow-lg shadow-blue-500/20 border border-white/80 mb-1 mx-auto">
+          <img src="/logo.png" alt="Easwari Engineering College Logo" className="w-full h-full object-contain" />
         </div>
         <h1 className="text-2xl font-bold tracking-tight text-gray-900">Reset Password</h1>
         <p className="text-xs text-gray-500">Enter OTP and new password for</p>

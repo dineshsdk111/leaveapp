@@ -104,8 +104,11 @@ export default function Navbar() {
   return (
     <nav className="bg-blue-800 text-white shadow-lg">
       <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <span className="text-xl font-bold">🎓 IT Leave Portal</span>
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 bg-white p-1 rounded-full flex items-center justify-center shadow">
+            <img src="/logo.png" alt="Easwari Engineering College Logo" className="w-full h-full object-contain" />
+          </div>
+          <span className="text-xl font-bold">IT Leave Portal</span>
         </div>
         <div className="flex items-center gap-4">
           <Link href="/dashboard" className="hover:text-blue-200">Dashboard</Link>

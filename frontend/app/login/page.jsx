@@ -40,13 +40,13 @@ export default function LoginPage() {
         
         {/* Header Section */}
         <div className="text-center space-y-2">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-blue-600 text-white text-3xl shadow-lg shadow-blue-500/30 mb-2">
-            🎓
+          <div className="inline-flex items-center justify-center w-24 h-24 p-2 bg-white/90 backdrop-blur rounded-full shadow-lg shadow-blue-500/20 border border-white/80 mb-1 mx-auto">
+            <img src="/logo.png" alt="Easwari Engineering College Logo" className="w-full h-full object-contain" />
           </div>
           <h1 className="text-2xl font-bold tracking-tight text-gray-900">
             IT Department Portal
           </h1>
-          <p className="text-sm font-medium text-blue-700 bg-blue-50/80 inline-block px-3 py-1 rounded-full border border-blue-100">
+          <p className="text-xs font-semibold text-blue-700 bg-blue-50/90 inline-block px-3 py-1 rounded-full border border-blue-100">
             SRM Easwari Engineering College
           </p>
         </div>
