@@ -26,6 +26,17 @@ export const api = {
     return data;
   },
 
+  async googleLogin(credential) {
+    const res = await fetchWithTimeout(`${API_URL}/auth/google-login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ credential }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.message);
+    return data;
+  },
+
   async getProfile(token) {
     const res = await fetchWithTimeout(`${API_URL}/auth/profile`, {
       headers: { Authorization: `Bearer ${token}` },
