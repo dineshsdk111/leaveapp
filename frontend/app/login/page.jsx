@@ -44,7 +44,7 @@ export default function LoginPage() {
 
   const initGoogleAuth = () => {
     if (typeof window !== 'undefined' && window.google?.accounts?.id) {
-      const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || '1048203598715-googleclientid.apps.googleusercontent.com';
+      const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || '736830783027-skb1ktbtf9bn6fhj7t3lmaqpvdqo34dh.apps.googleusercontent.com';
       window.google.accounts.id.initialize({
         client_id: clientId,
         callback: handleGoogleResponse,
