@@ -42,7 +42,10 @@ router.post('/login', async (req, res) => {
 });
 
 const { OAuth2Client } = require('google-auth-library');
-const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+const googleClient = new OAuth2Client(
+  process.env.GOOGLE_CLIENT_ID,
+  process.env.GOOGLE_CLIENT_SECRET
+);
 
 // Google OAuth Login
 router.post('/google-login', async (req, res) => {
