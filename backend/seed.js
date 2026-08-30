@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const User = require('./models/User');
 
-dotenv.config();
+const path = require('path');
+dotenv.config({ path: path.join(__dirname, '.env') });
 
 const students = [
   { name: "ABDUL FAIYAZ S M", rollNumber: "310624205001", email: "310624205001@eec.srmrmp.edu.in" },
