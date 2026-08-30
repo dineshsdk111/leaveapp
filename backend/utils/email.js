@@ -1,16 +1,46 @@
-const { Resend } = require('resend');
+const nodemailer = require('nodemailer');
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const createTransporter = () => {
+  if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+    return nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
+      }
+    });
+  }
+  return null;
+};
 
 const sendEmail = async (to, subject, html) => {
   try {
-    await resend.emails.send({
-      from: 'IT Leave Portal <noreply@resend.dev>',
-      to: process.env.NOTIFICATION_EMAIL || to,
-      subject,
-      html
-    });
-    console.log(`Email sent to ${to}`);
+    const transporter = createTransporter();
+    if (transporter) {
+      const info = await transporter.sendMail({
+        from: `"IT Leave Portal" <${process.env.EMAIL_USER}>`,
+        to,
+        subject,
+        html
+      });
+      console.log(`Email sent via Gmail SMTP to ${to}: ${info.response}`);
+      return info;
+    } else if (process.env.RESEND_API_KEY) {
+      const { Resend } = require('resend');
+      const resend = new Resend(process.env.RESEND_API_KEY);
+      const res = await resend.emails.send({
+        from: 'IT Leave Portal <noreply@resend.dev>',
+        to,
+        subject,
+        html
+      });
+      console.log(`Email sent via Resend to ${to}`);
+      return res;
+    } else {
+      console.warn('No email provider configured on server (EMAIL_USER/EMAIL_PASS or RESEND_API_KEY)');
+    }
   } catch (error) {
     console.error('Email error:', error.message);
   }
