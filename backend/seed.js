@@ -18,6 +18,7 @@ const students = [
   { name: "AKSHAYA J D", rollNumber: "310624205010", email: "310624205010@eec.srmrmp.edu.in" },
   { name: "AKSHAYA P N", rollNumber: "310624205011", email: "310624205011@eec.srmrmp.edu.in" },
   { name: "ALAGU SURYA S", rollNumber: "310624205012", email: "310624205012@eec.srmrmp.edu.in" },
+  { name: "ALLEN ABISHAI J", rollNumber: "310624205013", email: "310624205013@eec.srmrmp.edu.in" },
   { name: "ALVINA DELCIA", rollNumber: "310624205014", email: "310624205014@eec.srmrmp.edu.in" },
   { name: "ANAFA THABASSUM S", rollNumber: "310624205015", email: "310624205015@eec.srmrmp.edu.in" },
   { name: "ANBITHA V", rollNumber: "310624205017", email: "310624205017@eec.srmrmp.edu.in" },

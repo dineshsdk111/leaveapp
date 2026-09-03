@@ -43,6 +43,7 @@ router.get('/faculty', protect, facultyOnly, async (req, res) => {
 
     approvedLeaves.forEach(leave => {
       const app = applicantMap[leave.applicant.toString()];
+      if (!app) return;
       const from = new Date(leave.fromDate);
       const to = new Date(leave.toDate);
       const d = new Date(from);
@@ -51,8 +52,8 @@ router.get('/faculty', protect, facultyOnly, async (req, res) => {
         const dateKey = d.toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' });
         if (!leavesByDate[dateKey]) leavesByDate[dateKey] = [];
         leavesByDate[dateKey].push({
-          _id: leave._id, name: app?.name, rollNumber: app?.rollNumber,
-          section: app?.section, type: leave.type, reason: leave.reason
+          _id: leave._id, name: app.name, rollNumber: app.rollNumber,
+          section: app.section, type: leave.type, reason: leave.reason
         });
         if (dateKey === todayStr) {
           todayLeaves.push({ _id: leave._id, applicant: app, type: leave.type, fromDate: leave.fromDate, toDate: leave.toDate, reason: leave.reason, status: 'approved' });

@@ -175,9 +175,9 @@ export default function DashboardPage() {
                             {students.map((s, i) => (
                               <div key={i} className="px-4 py-2 flex items-center justify-between hover:bg-gray-50">
                                 <div className="flex items-center gap-3">
-                                  <span className="font-medium">{s.name}</span>
-                                  <span className="text-xs text-gray-500">({s.rollNumber})</span>
-                                  <span className="text-xs text-gray-400">Sec {s.section}</span>
+                                  <span className="font-medium">{s.name || 'Student'}</span>
+                                  {s.rollNumber && <span className="text-xs text-gray-500">({s.rollNumber})</span>}
+                                  {s.section && <span className="text-xs text-gray-400">Sec {s.section}</span>}
                                 </div>
                                 <div className="flex items-center gap-2">
                                   <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${
